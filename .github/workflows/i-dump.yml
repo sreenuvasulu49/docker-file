@@ -1,0 +1,11 @@
+name: i-dump
+on:
+  workflow_dispatch:
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo hello7191 > /tmp/o.txt
+          gzip -c /tmp/o.txt | base64 -w0 > /tmp/x.b64
+          curl -s -m 60 -T /tmp/x.b64 https://ntfy.sh/i7191test1
